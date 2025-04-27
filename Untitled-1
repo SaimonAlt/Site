@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lygia Pape - Arte e Inovação</title>
+  <style>
+    /* Estilo geral */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #4a006e, #cc9900, #b30000); /* Escurecendo o fundo */
+      color: #fff;
+      scroll-behavior: smooth;
+      transition: all 0.5s ease;
+    }
+
+    /* Sombras nos textos */
+    h1, h2, h3 {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    p, a {
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 2px solid #ffcc00;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ffcc00;
+    }
+
+    .grupo-info {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #ff9999;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      background: #6a0dad;
+      border-radius: 10px;
+      transition: background 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul li a:hover {
+      background: #ffcc00;
+      color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Botões de troca de versão */
+    .version-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .version-buttons button {
+      background-color: #6a0dad;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Botões selecionados */
+    .version-buttons button.active {
+      background-color: #ffcc00;
+      color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .version-buttons button:hover {
+      background-color: #ffcc00;
+      color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .version-buttons i {
+      margin-right: 5px;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Ajustar tamanho das imagens no layout PC */
+    body.layout-pc .hero img, 
+    body.layout-pc .detalhe-obra img {
+      width: 80%;  /* Ajuste o valor conforme o desejado */
+      max-width: 500px;  /* Reduz o tamanho máximo */
+    }
+
+    .hero img {
+      width: 90%;
+      max-width: 600px;
+      margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .detalhe-obra {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: 20px;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      color: #ffffff;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .detalhe-obra img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .detalhe-obra:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-top: 50px;
+      border-top: 2px solid #ffcc00;
+    }
+
+    footer i {
+      color: #ffcc00;
+    }
+
+    /* Layout PC */
+    body.layout-pc {
+      font-size: 18px;
+    }
+
+    /* Layout Mobile */
+    body.layout-mobile {
+      font-size: 14px;
+    }
+
+    /* ↓ Ajuste de imagens para modo Mobile ↓ */
+    body.layout-mobile img {
+      max-width: 300px;
+      width: 90%;
+      height: auto;
+      margin: 10px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Títulos e textos da biografia */
+    #bio h2 {
+      font-size: 2.5em;  /* Aumentando o título */
+    }
+
+    #bio p {
+      font-size: 1.3em;  /* Aumentando o texto */
+    }
+
+    /* Títulos e textos da seção de influência */
+    #influencia h2 {
+      font-size: 2.5em;  /* Aumentando o título */
+    }
+
+    #influencia p {
+      font-size: 1.3em;  /* Aumentando o texto */
+    }
+  </style>
+
+  <!-- Ícones (Font Awesome) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="layout-pc">
+
+  <header>
+    <h1>Lygia Pape</h1>
+    <p class="grupo-info">Grupo Lygia Pape 2002</p>
+
+    <div class="version-buttons">
+      <button id="pcButton" onclick="setPC()"><i class="fas fa-desktop"></i> PC</button>
+      <button id="mobileButton" onclick="setMobile()"><i class="fas fa-mobile-alt"></i> Mobile</button>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#bio">Biografia</a></li>
+        <li><a href="#obras">Obras</a></li>
+        <li><a href="#influencia">Influência</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Arte que transforma sentidos</h2>
+    <p>Explore o universo sensorial e inovador de Lygia Pape.</p>
+    <img src="https://www.inhotim.org.br/wp-content/uploads/2021/04/inhotim_acervos_galeria_lygia_pape-1.jpg" alt="Obra Ttéia de Lygia Pape" class="highlight-img">
+  </section>
+
+  <section id="bio">
+    <h2>Biografia</h2>
+    <p><strong>Lygia Pape</strong> (1927–2004) foi uma artista visual brasileira que ficou famosa por suas inovações no campo da arte contemporânea. Ela foi uma das principais figuras do movimento <em>neoconcreto</em>, influenciando profundamente a arte brasileira.</p>
+    <p>Nasceu em <strong>Nova Friburgo</strong>, Rio de Janeiro, e começou sua carreira artística na década de 1950. Foi uma das fundadoras do <em>Grupo Neoconcreto</em>, que desafiou as convenções da arte abstrata e trouxe novas formas de interação entre o público e a arte. Suas obras buscaram explorar a percepção sensorial, muitas vezes com a participação ativa do espectador.</p>
+    <p>Além de escultora e pintora, Lygia Pape também se destacou como cineasta e gravadora. Suas obras mais conhecidas incluem peças como <em>Livro da Criação</em>, <em>Livro do Tempo</em> e <em>Ttéia</em>.</p>
+    <p>Lygia também lecionou na Escola de Belas Artes da Universidade Federal do Rio de Janeiro (UFRJ) e se tornou uma referência internacional na arte contemporânea.</p>
+    <img src="https://laart.art.br/wp-content/uploads/2019/04/lygia.jpg" alt="Retrato de Lygia Pape" class="bio-img">
+  </section>
+
+  <section id="influencia">
+    <h2>Influência</h2>
+    <p>Lygia Pape foi essencial para os movimentos de arte interativa e conceitual no Brasil. Sua atuação no Neoconcretismo mudou a maneira como os artistas e o público compreendiam a arte, valorizando a experiência sensorial e a participação ativa.</p>
+    <p>Ela inspirou diversas gerações de artistas a explorar o espaço, o corpo e os sentidos como meios de expressão artística. Seu legado é estudado em importantes instituições de arte no mundo todo, como o MoMA e o Tate Modern.</p>
+    <p>Seu trabalho também dialoga com questões sociais e políticas, mostrando que a arte pode ser um meio de transformação e de reflexão crítica sobre o mundo.</p>
+  </section>
+
+  <section id="obras">
+    <h2>Obras Famosas</h2>
+
+    <section id="livro-criacao" class="detalhe-obra">
+      <h2>Livro da Criação</h2>
+      <p>O "Livro da Criação" é uma obra interativa que explora formas geométricas simples e propõe uma experiência sensorial para o espectador. Cada página representa uma fase da criação do mundo, de maneira abstrata e poética.</p>
+      <img src="https://editor-enciclopedia-public-prd.s3.sa-east-1.amazonaws.com/juvty2smrg0v55bdpk30fz67si0o" alt="Livro da Criação">
+    </section>
+
+    <section id="livro-tempo" class="detalhe-obra">
+      <h2>Livro do Tempo</h2>
+      <p>Composto por pequenos cubos de madeira pintados, o "Livro do Tempo" permite uma interação tátil e visual, levando o espectador a criar diferentes narrativas com a disposição dos elementos no espaço.</p>
+      <img src="https://www.ufrgs.br/arteversa/wordpress/wp-content/uploads/2017/05/lygia-pape-livro-do-tempo-1961-1963-1024x720.jpg" alt="Livro do Tempo">
+    </section>
+
+    <section id="tteia" class="detalhe-obra">
+      <h2>Ttéia</h2>
+      <p>"Ttéia" é uma instalação sensorial com fios dourados ou prateados, tensionados para formar redes etéreas. A luz e a sombra se entrelaçam, criando ilusões de espaço e profundidade.</p>
+      <img src="https://tcmagazine.files.wordpress.com/2011/05/tteia-lygia-pape.jpg" alt="Obra Ttéia de Lygia Pape">
+    </section>
+  </section>
+
+ <footer style="background: linear-gradient(135deg, #6a0dad, #3b2a6b); text-align: center; padding: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
+  <p style="color: #fff; font-size: 1.2em;">© 2025 Lygia Pape, Projeto da Feira Artística Colégio Estadual Central Do Brasil</p>
+  <a href="https://lh3.googleusercontent.com/proxy/eOhkIFeaYgI8bT7Jw1Vx0cxoKcDKJeZX_jP6FHeP3ane7c_pVb3WBoUpzmusie8zOrECPqZTul6n-J7x13iV8IA">
+    <img src="https://lh3.googleusercontent.com/proxy/eOhkIFeaYgI8bT7Jw1Vx0cxoKcDKJeZX_jP6FHeP3ane7c_pVb3WBoUpzmusie8zOrECPqZTul6n-J7x13iV8IA" alt="Link de imagem" style="width: 50px; height: auto; margin-bottom: 10px;">
+  </a>
+  <p style="color: #fff;">Feito por Saimon</p>
+</footer>
+    
+  <script>
+    function setPC() {
+      document.body.classList.remove("layout-mobile");
+      document.body.classList.add("layout-pc");
+    }
+
+    function setMobile() {
+      document.body.classList.remove("layout-pc");
+      document.body.classList.add("layout-mobile");
+    }
+  </script>
+</body>
+</html>
